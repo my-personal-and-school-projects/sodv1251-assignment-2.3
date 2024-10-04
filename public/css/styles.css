@@ -29,8 +29,21 @@ footer {
 
 h1 span {
   color: var(--dark-green);
-  font-variant: small-caps;
-  font-weight: bold;
+
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.nav-bar-container {
+  opacity: 0.9;
+  background: linear-gradient(360deg, #85ffbd 0%, #fffb7d 100%);
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar,
@@ -46,7 +59,24 @@ h1 span {
 .navbar-brand,
 .text-primary {
   color: var(--dark-green) !important;
-  font-variant: small-caps;
+
+  font-size: 35px !important;
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 800 !important;
+  font-style: normal;
+  text-decoration: underline;
+  font-weight: bolder !important;
+}
+
+.logo-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.logo {
+  width: 47px;
+  height: 50px;
 }
 
 .hero button:hover {
@@ -59,7 +89,7 @@ h1 span {
 .user-button button {
   background-color: transparent;
   border: none;
-  font-size: 20px;
+  font-size: 1.5rem;
   text-decoration: none;
   color: var(--black);
 }
@@ -149,6 +179,27 @@ h1 span {
 
 .scroll-wrapper {
   overflow-y: scroll;
+}
+
+.adds-section {
+  background: linear-gradient(-90deg, #85ffbd 0%, #fffb7d 100%);
+}
+
+.adds-img-container {
+  margin: auto;
+}
+
+.adds-content-container {
+  display: block;
+  align-content: center;
+}
+
+.adds-content-container p {
+  font-size: 21px;
+}
+.adds-content-container h2 {
+  color: var(--dark-green);
+  padding-bottom: 2rem;
 }
 
 /* ------------------ */

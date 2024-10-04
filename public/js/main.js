@@ -118,15 +118,12 @@ function loadHTMLLayoutComponents(component, container) {
     );
 }
 
-document.querySelectorAll(`.dropdown-item[href="/menu"]`).forEach((link) => {
+document.querySelectorAll(`.dropdown-item`).forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
 
-    targetPage = event.target.getAttribute("/menu");
-    window.history.pushState({}, "", targetPage);
-
-    if (window.location.pathname === "/menu") {
-      isMenuLoaded = true;
+    if (window.location.pathname.endsWith("/menu")) {
+      return;
     }
   });
 });

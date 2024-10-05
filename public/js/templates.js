@@ -9,7 +9,7 @@ export const suggestionsFoodCard = (menuItem) => `
             <p><strong>${menuItem.name}</strong></p>
             <p><span>$ ${menuItem.price}</span></p>
         </div>
-        <a href="#" class="text-decoration-none text-success">
+        <a href="/order" class="text-decoration-none text-success">
             Order this item
         </a>
         </div>

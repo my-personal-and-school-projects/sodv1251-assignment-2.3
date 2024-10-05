@@ -127,3 +127,9 @@ document.querySelectorAll(`.dropdown-item`).forEach((link) => {
     }
   });
 });
+
+document
+  .querySelector(".btn-shopping-cart")
+  .addEventListener("click", (event) => {
+    event.preventDefault();
+  });

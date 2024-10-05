@@ -39,11 +39,15 @@ h1 span {
 }
 
 .nav-bar-container {
-  opacity: 0.9;
-  background: linear-gradient(360deg, #85ffbd 0%, #fffb7d 100%);
-  position: sticky !important;
+  display: flex;
+  height: 75px;
+}
+.navbar {
+  position: fixed !important;
   top: 0;
-  z-index: 1000;
+  opacity: 0.9;
+  z-index: 999;
+  background: linear-gradient(360deg, #85ffbd 0%, #fffb7d 100%);
 }
 
 .navbar,
@@ -79,7 +83,11 @@ h1 span {
   height: 50px;
 }
 
-.hero button:hover {
+.btn-order {
+  text-decoration: none;
+}
+
+.btn-order:hover {
   background-color: transparent;
   border: 1px solid var(--black);
   color: var(--black);
@@ -222,12 +230,60 @@ h1 span {
 }
 
 /* ------------------ */
+/* Order Page */
+/* ------------------ */
+
+.order-details-row {
+  padding-bottom: 4rem;
+}
+
+.order-card-image-container {
+  height: 60%;
+}
+
+.order-card-image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.order-card-description {
+  background: linear-gradient(360deg, #85ffbd 0%, #fffb7d 100%);
+  height: 40%;
+}
+
+.order-card-description h2 {
+  font-size: 40px;
+}
+
+.list-group-item a {
+  color: var(--black);
+}
+
+#allergies {
+  border-color: var(--mid-green);
+}
+
+.allergies-container span {
+  font-size: 11px;
+}
+
+.warnings-section p {
+  font-size: 13px;
+}
+
+/* ------------------ */
 /* Responsive Design */
 /* ------------------ */
 @media screen and (max-width: 576px) {
   h2 {
     font-size: 1.25rem;
   }
+
+  .hero {
+    padding-top: 3rem;
+  }
+
   .hero h1 {
     font-size: 1.5rem;
   }
@@ -235,6 +291,10 @@ h1 span {
   .hero p {
     font-size: 1rem !important;
     margin-bottom: 1.5rem !important;
+  }
+
+  .hero span {
+    font-size: 40px !important;
   }
 
   .btn-order {
@@ -263,7 +323,30 @@ h1 span {
     flex-direction: column !important;
   }
 
-  /* Menu Page */
+  .adds-section h2 {
+    font-size: 22px !important;
+  }
+
+  .adds-section p {
+    font-size: 14px;
+  }
+
+  /* ------------------ */
+  /* Order Page */
+  /* ------------------ */
+
+  .order-card-description h2 {
+    font-size: 25px !important;
+  }
+
+  .order-card-description p,
+  .list-group-item a {
+    font-size: 12px;
+  }
+
+  .warnings-section p {
+    font-size: 12px !important;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -280,8 +363,12 @@ h1 span {
     font-size: 1.5rem;
   }
 
-  .hero span {
-    font-size: 1.75rem;
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .hero h1 span {
+    font-size: 40px !important;
   }
 
   .hero p {
@@ -299,5 +386,32 @@ h1 span {
 
   .description-container {
     flex-direction: column !important;
+  }
+
+  /* ------------------ */
+  /* Order Page */
+  /* ------------------ */
+  .order-details-row {
+    height: auto;
+  }
+
+  .food-order-card {
+    display: flex !important;
+    flex-direction: row-reverse;
+    height: 100% !important;
+  }
+
+  .order-card-image-container {
+    height: auto;
+    width: 50%;
+  }
+
+  .order-card-description {
+    height: auto;
+    width: 50%;
+  }
+
+  .order-card-description h2 {
+    font-size: 30px;
   }
 }

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order</title>
+
+    <!-- Scripts -->
+    <script type="module" src="/js/main.js" defer></script>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/css/modern-reset.css" />
+    <link type="text/css" rel="stylesheet" href="/css/styles.css" />
+
+    <!-- fa-icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper order-wrapper">
+      <header>
+        <div class="nav-bar-container sticky-top"></div>
+      </header>
+      <main>
+        <div class="main-container">
+          <section class="container py-5">
+            <div class="row pb-0 order-details-row">
+              <div class="col-lg-6 p-0">
+                <div class="food-order-card d-block h-100">
+                  <div class="order-card-image-container">
+                    <img src="../assets/images/food-15.png" alt="" />
+                  </div>
+                  <div class="order-card-description p-4">
+                    <div>
+                      <ul class="p-0">
+                        <li class="list-group-item">
+                          <a href="/" class="">Home</a>
+                          /
+                          <a href="/menu" class="">Menu</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <h2>Food Item Name</h2>
+                    <p><span>$20</span></p>
+                    <p>Unos ricos tacuaches de muerte lenta</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 p-5">
+                <div>
+                  <div class="mb-3 w-100 allergies-container">
+                    <label for="allergies" class="form-label"
+                      ><strong>Allergy Notification</strong> ( optional)</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="allergies"
+                      rows="4"
+                    ></textarea>
+                    <span>*No price altering substitutions/additions</span>
+                  </div>
+                  <div class="warnings-section">
+                    <p class="mb-3">
+                      <strong> Caution:</strong> We cannot ensure that our menu
+                      items are free from ingredients that could cause allergic
+                      reactions or conflict with dietary restrictions. Some
+                      dishes may also contain alcohol. Allergen details can be
+                      found at TheLastSupper.ca
+                    </p>
+                    <p class="text-uppercase mb-3">
+                      <strong>IMPORTANT</strong>: Items marked with * may
+                      include raw or undercooked ingredients. Consumption of raw
+                      or undercooked meats, poultry, seafood, shellfish, or eggs
+                      may elevate the risk of foodborne illness, particularly
+                      for those with certain health conditions.
+                    </p>
+                  </div>
+                  <div
+                    class="w-75 m-auto d-flex justify-content-center gap-3 py-4"
+                  >
+                    <input
+                      class="input-qty form-control w-25"
+                      type="number"
+                      value=""
+                    />
+                    <button class="btn btn-danger px-4">
+                      Add to Cart - $<span>0.00</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer>
+        <div class="footer-container"></div>
+      </footer>
+    </div>
+  </body>
+</html>

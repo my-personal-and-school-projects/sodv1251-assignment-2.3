@@ -23,11 +23,17 @@ function serveFiles(res, filePath, contentType) {
 //Create the server
 const server = http.createServer((req, res) => {
   if (req.url === "/") {
-    // Serve the index.html
+    // Serve the index page
     serveFiles(res, "./public/index.html", "text/html");
   } else if (req.url === "/menu") {
-    // Serve the menu.html
+    // Serve the menu page
     serveFiles(res, "./public/pages/menu.html", "text/html");
+  } else if (req.url === "/order") {
+    //serve the order review page
+    serveFiles(res, "./public/pages/order.html", "text/html");
+  } else if (req.url === "/cart") {
+    //serve the cart page
+    serveFiles(res, "./public/pages/cart.html", "text/html");
   } else {
     // Serve static files (CSS, JS, images)
     const filePath = path.join(__dirname, "public", req.url);
@@ -49,7 +55,7 @@ const server = http.createServer((req, res) => {
         // If the file is not found, send a 404 response
         if (err.code === "ENOENT") {
           res.writeHead(404, { "Content-Type": "text/plain" });
-          res.end("File Not Found");
+          res.end("404: File Not Found");
         } else {
           res.writeHead(500, { "Content-Type": "text/plain" });
           res.end("Internal Server Error");

@@ -18,16 +18,29 @@ function loadMenuItems() {
     drinksRow.innerHTML = "";
     dessertsRow.innerHTML = "";
 
-    menuItems.foods.forEach((foodItem) => {
+    //get the food items under the category of foods
+    let foods = findAndSortFoodByCategory("foods");
+    foods.forEach((foodItem) => {
       foodRow.innerHTML += suggestionsFoodCard(foodItem);
     });
 
-    menuItems.drinks.forEach((drinkItem) => {
+    //get the food items under the category of drinks
+    let drinks = findAndSortFoodByCategory("drinks");
+    drinks.forEach((drinkItem) => {
       drinksRow.innerHTML += suggestionsFoodCard(drinkItem);
     });
 
-    menuItems.desserts.forEach((dessertItem) => {
+    //get the food items under the category of desserts
+    let desserts = findAndSortFoodByCategory("desserts");
+    desserts.forEach((dessertItem) => {
       dessertsRow.innerHTML += suggestionsFoodCard(dessertItem);
     });
   }
+}
+
+function findAndSortFoodByCategory(category) {
+  let foodItems = menuItems.filter((item) => item.category === category);
+  const assortedFood = foodItems.sort((a, b) => a.name.localeCompare(b.name));
+
+  return assortedFood;
 }

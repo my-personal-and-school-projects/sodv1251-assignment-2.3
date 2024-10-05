@@ -7,6 +7,7 @@
 
     <!-- Scripts -->
     <script type="module" src="/js/main.js" defer></script>
+    <script type="module" src="/js/order.js" defer></script>
 
     <!-- Bootstrap -->
     <link
@@ -67,27 +68,7 @@
         <div class="main-container">
           <section class="container py-5">
             <div class="row pb-0 order-details-row">
-              <div class="col-lg-6 p-0">
-                <div class="food-order-card d-block h-100">
-                  <div class="order-card-image-container">
-                    <img src="../assets/images/food-15.png" alt="" />
-                  </div>
-                  <div class="order-card-description p-4">
-                    <div>
-                      <ul class="p-0">
-                        <li class="list-group-item">
-                          <a href="/" class="">Home</a>
-                          /
-                          <a href="/menu" class="">Menu</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h2>Food Item Name</h2>
-                    <p><span>$20</span></p>
-                    <p>Unos ricos tacuaches de muerte lenta</p>
-                  </div>
-                </div>
-              </div>
+              <div class="col-lg-6 p-0 food-order-card-container"></div>
               <div class="col-lg-6 p-5">
                 <div>
                   <div class="mb-3 w-100 allergies-container">
@@ -125,9 +106,12 @@
                       type="number"
                       value=""
                     />
-                    <button class="btn btn-danger px-4">
+                    <a
+                      href="/cart"
+                      class="btn btn-success px-5 btn-add-to-cart"
+                    >
                       Add to Cart - $<span>0.00</span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

@@ -11,14 +11,13 @@ const foodCategories = {
   desserts: [],
 };
 
+export let orderItem = "";
+
 let foodCategory = "";
 //track if the menu has been loaded
 let isMenuLoaded = false;
 const taxRate = 0.05;
 const targetPage = "";
-
-//get data
-const foodData = menuItems[foodCategory];
 
 function onInit() {
   handleBtnOrder();
@@ -62,22 +61,10 @@ function generateRandomFoodItems() {
     foodSuggestionsRow.innerHTML = "";
     const foodSuggestions = [];
 
-    const randomFoodCategories = {
-      foods: getRandomFoodItems(menuItems.foods, 6),
-      drinks: getRandomFoodItems(menuItems.drinks, 3),
-      desserts: getRandomFoodItems(menuItems.desserts, 3),
-    };
+    const randomFoodCategories = getRandomFoodItems(menuItems, 12);
     console.log("Foods: ", randomFoodCategories.foods);
 
-    randomFoodCategories.foods.forEach((item) => {
-      foodSuggestions.push(item);
-    });
-
-    randomFoodCategories.drinks.forEach((item) => {
-      foodSuggestions.push(item);
-    });
-
-    randomFoodCategories.desserts.forEach((item) => {
+    randomFoodCategories.forEach((item) => {
       foodSuggestions.push(item);
     });
 
@@ -128,8 +115,23 @@ document.querySelectorAll(`.dropdown-item`).forEach((link) => {
   });
 });
 
-document
+/* document
   .querySelector(".btn-shopping-cart")
   .addEventListener("click", (event) => {
     event.preventDefault();
-  });
+  }); */
+
+/*   function getOrderItem() {
+    const orderItemButtons = document.querySelectorAll(".order-item");
+  
+    if (orderItemButtons) {
+      orderItemButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const orderItemData = button.getAttribute("data-item");
+          orderItem = JSON.parse(orderItemData);
+          
+          console.log(orderItemData);
+        });
+      });
+    }
+  } */

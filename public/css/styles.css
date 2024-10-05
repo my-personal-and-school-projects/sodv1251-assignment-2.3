@@ -252,6 +252,10 @@ h1 span {
   height: 40%;
 }
 
+.order-card-description p {
+  padding-bottom: 1rem;
+}
+
 .order-card-description h2 {
   font-size: 40px;
 }
@@ -270,6 +274,21 @@ h1 span {
 
 .warnings-section p {
   font-size: 13px;
+}
+
+.btn-remove-item {
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+  padding: 0;
+}
+
+/* ------------------ */
+/*    Cart Page       */
+/* ------------------ */
+
+.cart-header {
+  border-bottom: 1px solid var(--mid-gray);
 }
 
 /* ------------------ */

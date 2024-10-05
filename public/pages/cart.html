@@ -63,7 +63,97 @@
       <header>
         <div class="nav-bar-container sticky-top"></div>
       </header>
-      <main></main>
+      <main>
+        <div class="main-wrapper">
+          <section>
+            <div class="row container m-auto">
+              <div class="cart-header d-flex justify-content-center gap-5 py-4">
+                <h2>Your Order</h2>
+                <div>
+                  <a href="/menu" class="btn btn-success">+ Add More Items</a>
+                </div>
+              </div>
+            </div>
+            <div class="row container m-auto">
+              <div class="col-7">
+                <h3 class="text-center">Items in cart</h3>
+                <div class="row cart-item-card-container">
+                  <div class="cart-item-card col-6">
+                    <p><strong>Food Name</strong></p>
+                    <p class="py-3">Description</p>
+                    <div>
+                      <button class="btn-remove-item">Remove</button>
+                    </div>
+                  </div>
+                  <div class="col-6 d-flex flex-column align-items-end">
+                    <p class="py-3">$<span>15.35</span></p>
+                    <input
+                      class="input-qty form-control w-25"
+                      type="number"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <h3 class="text-center">Order Summary</h3>
+                <p>Subtotal:</p>
+                <p>GST:</p>
+                <p>Total:</p>
+                <div class="payment-methods row">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Cash
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Gift Card
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault2"
+                      checked
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Visa
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      id="flexRadioDefault1"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      MasterCard
+                    </label>
+                  </div>
+                </div>
+
+                <button class="btn btn-success px-4">Place Order</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
       <footer>
         <div class="footer-container"></div>
       </footer>

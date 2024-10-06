@@ -7,6 +7,7 @@
 
     <!-- Scripts -->
     <script type="module" src="/js/main.js" defer></script>
+    <script type="module" src="/js/cart.js" defer></script>
 
     <!-- Bootstrap -->
     <link
@@ -51,6 +52,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/css/modern-reset.css" />
     <link type="text/css" rel="stylesheet" href="/css/styles.css" />
+    <link type="text/css" rel="stylesheet" href="/css/loader-styles.css" />
 
     <!-- fa-icons -->
     <link
@@ -58,6 +60,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
+  <span class="loader"></span>
   <body>
     <div class="wrapper">
       <header>
@@ -70,37 +73,33 @@
               <div class="cart-header d-flex justify-content-center gap-5 py-4">
                 <h2>Your Order</h2>
                 <div>
-                  <a href="/menu" class="btn btn-success">+ Add More Items</a>
+                  <a href="/menu" class="btn btn-success btn-add-more-items"
+                    >+ Add More Items</a
+                  >
                 </div>
               </div>
             </div>
-            <div class="row container m-auto">
-              <div class="col-7">
-                <h3 class="text-center">Items in cart</h3>
-                <div class="row cart-item-card-container">
-                  <div class="cart-item-card col-6">
-                    <p><strong>Food Name</strong></p>
-                    <p class="py-3">Description</p>
-                    <div>
-                      <button class="btn-remove-item">Remove</button>
-                    </div>
-                  </div>
-                  <div class="col-6 d-flex flex-column align-items-end">
-                    <p class="py-3">$<span>15.35</span></p>
-                    <input
-                      class="input-qty form-control w-25"
-                      type="number"
-                      value=""
-                    />
-                  </div>
+            <div class="row container m-auto pt-0">
+              <div class="col-7 py-4">
+                <h3 class="text-center border-bottom border-success-subtle">
+                  Items in cart
+                </h3>
+                <div class="cart-scroll-wrapper">
+                  <div class="col-12 cart-item-card-container"></div>
                 </div>
               </div>
-              <div class="col-5">
-                <h3 class="text-center">Order Summary</h3>
-                <p>Subtotal:</p>
-                <p>GST:</p>
-                <p>Total:</p>
-                <div class="payment-methods row">
+              <div class="col-5 px-5 pb-5 order-summary">
+                <div class="row w-100 py-4">
+                  <h3 class="text-center border-bottom border-success-subtle">
+                    Order Summary
+                  </h3>
+                  <div class="pt-4">
+                    <p>Subtotal: $<span class="cart-subtotal">0</span></p>
+                    <p>GST: $<span class="cart-gst">0</span></p>
+                    <p>Total: $<span class="cart-total">0</span></p>
+                  </div>
+                </div>
+                <div class="payment-methods row w-100">
                   <div class="form-check">
                     <input
                       class="form-check-input"
@@ -148,7 +147,21 @@
                   </div>
                 </div>
 
-                <button class="btn btn-success px-4">Place Order</button>
+                <div class="row w-100 p-0">
+                  <button class="btn btn-success m-auto btn-place-order">
+                    Place Order
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="row container m-auto pt-3">
+              <h2 class="text-center border-bottom border-success-subtle">
+                You Might Also Like
+              </h2>
+              <div class="scroll-wrapper">
+                <div class="row-food-suggestions row d-flex flex-nowrap"></div>
               </div>
             </div>
           </section>

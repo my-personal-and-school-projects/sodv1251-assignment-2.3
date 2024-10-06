@@ -41,3 +41,24 @@ export const foodOrderCard = (menuItem) => `
     </div>
 </div>
 `;
+
+export const shoppingCartCard = (menuItem) => `
+
+<div class="row cart-card-wrapper border-bottom border-secondary-subtle">
+    <div class="cart-item-card col-6">
+    <p><strong>${menuItem.name}</strong></p>
+    <p class="py-3">${menuItem.description}</p>
+    <div>
+        <button class="btn-remove-item">Remove</button>
+    </div>
+    </div>
+    <div class="col-6 d-flex flex-column align-items-end">
+    <p class="py-3">$<span>${menuItem.price}</span></p>
+    <input
+        class="input-qty form-control w-25"
+        type="number"
+        value=""
+    />
+    </div>
+</div>
+`;

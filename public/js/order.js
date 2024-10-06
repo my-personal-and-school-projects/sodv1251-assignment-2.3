@@ -7,10 +7,11 @@ const foodOrderCardContainer = document.querySelector(
 );
 const priceTag = document.querySelector(".btn-add-to-cart span");
 const itemQty = document.querySelector(".input-qty ");
-const btnAddToCart = document.querySelector(".btn-add-to-cart");
+const addToCartButton = document.querySelector(".btn-add-to-cart");
 
 /* variables */
 let itemPrice = 0;
+let shoppingCartItems = [];
 
 function onInit() {
   getSelectedfoodItem();
@@ -40,3 +41,17 @@ function getSelectedfoodItem() {
     console.log(orderedItem);
   }
 }
+
+//store the cart items in localStorage
+addToCartButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const itemId = urlParams.get("item");
+  shoppingCartItems.push(itemId);
+
+  console.log(shoppingCartItems);
+
+  localStorage.setItem("shoppingCartItems", shoppingCartItems);
+  window.location.href = "/menu";
+});

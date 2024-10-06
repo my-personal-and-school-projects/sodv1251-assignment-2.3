@@ -11,7 +11,8 @@ const addToCartButton = document.querySelector(".btn-add-to-cart");
 
 /* variables */
 let itemPrice = 0;
-let shoppingCartItems = [];
+let shoppingCartItems =
+  JSON.parse(localStorage.getItem("shoppingCartItems")) || [];
 
 function onInit() {
   getSelectedfoodItem();
@@ -50,8 +51,8 @@ addToCartButton.addEventListener("click", (event) => {
   const itemId = urlParams.get("item");
   shoppingCartItems.push(itemId);
 
-  console.log(shoppingCartItems);
+  localStorage.setItem("shoppingCartItems", JSON.stringify(shoppingCartItems));
 
-  localStorage.setItem("shoppingCartItems", shoppingCartItems);
+  console.log(shoppingCartItems);
   window.location.href = "/menu";
 });

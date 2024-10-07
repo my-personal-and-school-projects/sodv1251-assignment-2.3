@@ -43,6 +43,10 @@ function getSelectedfoodItem() {
   }
 }
 
+/* TODO:need to update price inside the button dynamically
+when number input increases/decreases qty.
+*/
+
 //store the cart items in localStorage
 addToCartButton.addEventListener("click", (event) => {
   event.preventDefault();

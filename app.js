@@ -28,6 +28,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url === "/menu") {
     // Serve the menu page
     serveFiles(res, "./public/pages/menu.html", "text/html");
+  } else if (req.url === "/menu-food") {
+    //Serve food menu page
+    serveFiles(res, "./public/pages/menu-food.html", "text/html");
   } else if (req.url.startsWith("/order")) {
     //serve the order review page
     serveFiles(res, "./public/pages/order.html", "text/html");

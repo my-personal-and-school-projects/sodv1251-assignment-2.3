@@ -37,7 +37,7 @@ export const foodOrderCard = (menuItem) => `
     <h2>${menuItem.name}</h2>
     <p><span>$${menuItem.price}</span></p>
     <p>${menuItem.description}</p>
-    <p>${menuItem.ingredients}</p>
+    <p><strong>Ingredients</strong>: ${menuItem.ingredients}</p>
     </div>
 </div>
 `;

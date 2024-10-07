@@ -271,7 +271,7 @@ export const menuItems = [
     name: "Coca-Cola",
     description: "Classic carbonated soft drink.",
     price: 1.99,
-    ingredients: ["Carbonated Water", "Corn Syrup", "Caffeine"],
+    ingredients: ["Carbonated Water", "Corn Syrup", "Caffeine"].join(", "),
     img_url: "./assets/images/drink-3.png",
     category: "drinks",
   },
@@ -281,7 +281,7 @@ export const menuItems = [
     name: "Milkshake",
     description: "Thick and creamy milkshake available in various flavors.",
     price: 4.99,
-    ingredients: ["Ice Cream", "Milk", "Flavoring", "Whipped Cream"],
+    ingredients: ["Ice Cream", "Milk", "Flavoring", "Whipped Cream"].join(", "),
     img_url: "./assets/images/drink-4.png",
     category: "drinks",
   },
@@ -294,5 +294,50 @@ export const menuItems = [
     ingredients: ["Tea Leaves", "Water", "Sugar"].join(", "),
     img_url: "./assets/images/drink-5.png",
     category: "drinks",
+  },
+  {
+    ...menuItem,
+    id: 26,
+    name: "Sirloin Steak",
+    description:
+      "Juicy sirloin steak grilled to perfection, served with a side of garlic butter.",
+    price: 18.99,
+    ingredients: ["Sirloin Steak", "Garlic Butter", "Salt", "Pepper"].join(
+      ", "
+    ),
+    img_url: "./assets/images/food-16.png",
+    category: "foods",
+  },
+
+  {
+    ...menuItem,
+    id: 27,
+    name: "Green Enchiladas",
+    description:
+      "Corn tortillas filled with chicken and topped with a tangy green tomatillo sauce.",
+    price: 12.49,
+    ingredients: [
+      "Corn Tortillas",
+      "Shredded Chicken",
+      "Green Sauce",
+      "Cheese",
+      "Sour Cream",
+    ].join(", "),
+    img_url: "./assets/images/food-17.png",
+    category: "foods",
+  },
+
+  {
+    ...menuItem,
+    id: 28,
+    name: "Borscht",
+    description:
+      "A traditional beet soup, served hot with a dollop of sour cream and fresh dill.",
+    price: 9.99,
+    ingredients: ["Beets", "Cabbage", "Potatoes", "Carrots", "Sour Cream"].join(
+      ", "
+    ),
+    img_url: "./assets/images/food-18.png",
+    category: "foods",
   },
 ];

@@ -52,7 +52,7 @@ export const menuItems = [
   {
     ...menuItem,
     id: 5,
-    name: "Grilled Chicken Sandwich",
+    name: "Chicken Sandwich",
     description: "Tender grilled chicken with mayo, lettuce, and tomato.",
     price: 9.49,
     ingredients: ["Chicken Breast", "Lettuce", "Tomato", "Mayo", "Bun"].join(

@@ -1,3 +1,5 @@
+import { carouselItems } from "./templates.js";
+
 //get necessary components from teh DOM
 const carouselContainer = document.querySelector(".carousel-container");
 
@@ -21,9 +23,22 @@ function loadHTMLLayoutComponents(component, container) {
     );
 }
 
-const myCarouselElement = document.querySelector("#myCarousel");
+/* const myCarouselElement = document.querySelector("#myCarousel");
 
 const carousel = new bootstrap.Carousel(myCarouselElement, {
   interval: 2000,
   touch: false,
 });
+
+//get the food item by id
+function getFoodItemByID(id) {
+  let foodItem = menuItems.find((item) => item.id === id);
+  return foodItem;
+} */
+
+function renderCarouselItems() {
+  if (carouselContainer) {
+    carouselContainer.innerHTML = "";
+    carouselContainer.innerHTML += carouselItems;
+  }
+}

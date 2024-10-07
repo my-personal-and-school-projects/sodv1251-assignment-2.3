@@ -20,7 +20,7 @@ export const suggestionsFoodCard = (menuItem) => `
 `;
 
 export const foodOrderCard = (menuItem) => `
-<div class="food-order-card d-block h-100">
+<div class="food-order-card d-block h-auto">
     <div class="order-card-image-container">
     <img src="${menuItem.img_url}" alt="food image" />
     </div>
@@ -61,4 +61,52 @@ export const shoppingCartCard = (menuItem) => `
     />
     </div>
 </div>
+`;
+
+export const carouselItems = `
+
+<div class="carousel-item active" data-bs-interval="10000">
+      <img src="../assets/banner-image-1.png" class="w-100" alt="..." />
+      <div class="carousel-caption d-flex flex-column text-start">
+        <h5 class="banner-item-name">Item Name</h5>
+        <div class="d-flex gap-5 align-items-center">
+          <p>$ <span>0</span></p>
+          <a
+            href="/order?item=${encodeURIComponent(JSON.stringify(26))}"
+            class="btn btn-danger order-item text-decoration-none"
+            >Add to Order</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="../assets/banner-image-2.png" class="d-block w-100" alt="..." />
+      <div class="carousel-caption d-flex flex-column text-start">
+        <h5 class="banner-item-name">Item Name</h5>
+        <div class="d-flex gap-5 align-items-center">
+          <p>$ <span>0</span></p>
+          <a
+            href="/order?item=${encodeURIComponent(JSON.stringify(27))}"
+            class="btn btn-danger order-item text-decoration-none"
+            >Add to Order</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../assets/banner-image-3.png" class="d-block w-100" alt="..." />
+      <div class="carousel-caption d-flex flex-column text-start">
+        <h5>Third slide label</h5>
+        <div class="d-flex gap-5 align-items-center">
+          <p>$ <span>0</span></p>
+          <a
+            href="/order?item=${encodeURIComponent(JSON.stringify(28))}"
+            class="btn btn-danger order-item text-decoration-none"
+            >Add to Order</a
+          >
+        </div>
+      </div>
+    </div>
+
+
 `;

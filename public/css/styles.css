@@ -149,7 +149,7 @@ h1 span {
 
 .card {
   padding: 0.5rem;
-  flex: 1 1 calc(33.33% - 1rem);
+  flex: 1 1 calc(33.33%);
   background-color: var(--white);
   border-radius: 5px;
   display: flex;
@@ -176,7 +176,7 @@ h1 span {
 .card-description {
   padding: 0.5rem;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   border-top: 1px solid #ddd;
 }
 

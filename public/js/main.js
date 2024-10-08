@@ -21,12 +21,19 @@ const targetPage = "";
 
 function onInit() {
   handleBtnOrder();
-  loadHTMLLayoutComponents("./components/nav-bar.html", ".nav-bar-container");
+
+  loadHTMLLayoutComponents(
+    "./components/nav-bar.html",
+    ".nav-bar-container"
+  ).then(() => {
+    updateShoppingCartItemsCounter();
+  });
   loadHTMLLayoutComponents("./components/footer.html", ".footer-container");
 
   isMenuLoaded = false;
 
   generateRandomFoodItems();
+  const cartItemsCounterLabel = document.querySelector(".cart-items");
 }
 onInit();
 
@@ -55,7 +62,7 @@ function getRandomFoodItems(data, mealCount) {
   const randomizedData = shuffleArray([...data]);
   return randomizedData.slice(0, mealCount);
 }
-
+//TODO: fix function, foods logging null
 function generateRandomFoodItems() {
   if (foodSuggestionsRow) {
     foodSuggestionsRow.innerHTML = "";
@@ -94,8 +101,8 @@ function handleBtnOrder() {
 /**
  * load necessary shared layout for the pages
  */
-function loadHTMLLayoutComponents(component, container) {
-  fetch(component)
+async function loadHTMLLayoutComponents(component, container) {
+  return fetch(component)
     .then((response) => response.text())
     .then((data) => {
       document.querySelector(container).innerHTML = data;
@@ -135,3 +142,17 @@ document.querySelectorAll(`.dropdown-item`).forEach((link) => {
       });
     }
   } */
+
+function updateShoppingCartItemsCounter() {
+  let parsedQuantities = [];
+  let qty = JSON.parse(localStorage.getItem("quantities")) || [];
+  const cartItemsCounterLabel = document.querySelector(".cart-items");
+
+  console.log("label", cartItemsCounterLabel);
+  qty.forEach((quantity) => {
+    parsedQuantities.push(quantity);
+    console.log(quantity);
+    cartItemsCounterLabel.textContent = "";
+    cartItemsCounterLabel.textContent += parseInt(quantity);
+  });
+}

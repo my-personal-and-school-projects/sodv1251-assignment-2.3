@@ -38,7 +38,7 @@ function renderCartItems() {
   let parsedItems = [];
   itemsInCart = getOrderFromLocalStorage();
 
-  //TODO: Needs to be simplified, seem there is one unecessary loop
+  //TODO: Needs to be simplified, seems there is one unecessary loop
   if (itemsInCart.length > 0) {
     cartItemsContainer.innerHTML = "";
 

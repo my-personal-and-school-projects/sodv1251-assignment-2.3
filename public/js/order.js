@@ -11,6 +11,7 @@ const addToCartButton = document.querySelector(".btn-add-to-cart");
 
 /* variables */
 let itemPrice = 0;
+let itemQuantity = 0;
 let shoppingCartItems =
   JSON.parse(localStorage.getItem("shoppingCartItems")) || [];
 
@@ -38,14 +39,11 @@ function getSelectedfoodItem() {
       itemPrice = item.price;
       priceTag.textContent = itemPrice;
       itemQty.value = orderedItem.length;
+      handleQuantityInput(itemPrice);
     });
     console.log(orderedItem);
   }
 }
-
-/* TODO:need to update price inside the button dynamically
-when number input increases/decreases qty.
-*/
 
 //store the cart items in localStorage
 addToCartButton.addEventListener("click", (event) => {
@@ -58,5 +56,25 @@ addToCartButton.addEventListener("click", (event) => {
   localStorage.setItem("shoppingCartItems", JSON.stringify(shoppingCartItems));
 
   console.log(shoppingCartItems);
+  getItemsQuantity(itemQuantity);
   window.location.href = "/menu";
+  console.log(itemQuantity);
 });
+
+/**
+ * Update the price tag based on the quantity input
+ * @param {*} price
+ */
+function handleQuantityInput(price) {
+  itemQty.addEventListener("input", (event) => {
+    itemQuantity = event.target.value;
+
+    priceTag.textContent = price * itemQuantity;
+  });
+}
+
+function getItemsQuantity(qty) {
+  const quantities = [];
+  quantities.push(qty);
+  localStorage.setItem("quantities", JSON.stringify(quantities));
+}

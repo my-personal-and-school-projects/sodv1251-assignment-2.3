@@ -12,6 +12,7 @@ export const menuItems = [
     ),
     img_url: "./assets/images/food-1.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -22,6 +23,7 @@ export const menuItems = [
     ingredients: ["Pasta", "Eggs", "Parmesan", "Bacon", "Cream"].join(", "),
     img_url: "./assets/images/food-2.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -33,6 +35,7 @@ export const menuItems = [
     ingredients: ["Pizza Dough", "Tomatoes", "Mozzarella", "Basil"].join(", "),
     img_url: "./assets/images/food-3.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -48,6 +51,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/food-4.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -60,6 +64,7 @@ export const menuItems = [
     ),
     img_url: "./assets/images/food-5.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -70,6 +75,7 @@ export const menuItems = [
     ingredients: ["Pork Ribs", "BBQ Sauce", "Spices"].join(", "),
     img_url: "./assets/images/food-6.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -82,6 +88,7 @@ export const menuItems = [
     ),
     img_url: "./assets/images/food-7.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -92,6 +99,7 @@ export const menuItems = [
     ingredients: ["Grilled Fish", "Tortillas", "Salsa", "Cabbage"].join(", "),
     img_url: "./assets/images/food-8.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -102,6 +110,7 @@ export const menuItems = [
     ingredients: ["Arborio Rice", "Mushrooms", "Broth", "Parmesan"].join(", "),
     img_url: "./assets/images/food-9.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -117,6 +126,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/food-10.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -133,6 +143,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/food-11.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -149,6 +160,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/food-12.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -166,6 +178,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/food-13.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -176,6 +189,7 @@ export const menuItems = [
     ingredients: ["Shrimp", "Rice", "Vegetables", "Soy Sauce"].join(", "),
     img_url: "./assets/images/food-14.png",
     category: "foods",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -186,8 +200,8 @@ export const menuItems = [
     ingredients: ["Ground Beef", "Tortillas", "Lettuce", "Cheese"].join(", "),
     img_url: "./assets/images/food-15.png",
     category: "foods",
+    qty: 1,
   },
-
   {
     ...menuItem,
     id: 16,
@@ -197,6 +211,7 @@ export const menuItems = [
     ingredients: ["Cream Cheese", "Graham Cracker", "Sugar", "Eggs"].join(", "),
     img_url: "./assets/images/dessert-1.png",
     category: "desserts",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -207,6 +222,7 @@ export const menuItems = [
     ingredients: ["Chocolate", "Flour", "Sugar", "Butter", "Eggs"].join(", "),
     img_url: "./assets/images/dessert-2.png",
     category: "desserts",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -219,6 +235,7 @@ export const menuItems = [
     ),
     img_url: "./assets/images/dessert-3.png",
     category: "desserts",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -229,6 +246,7 @@ export const menuItems = [
     ingredients: ["Ice Cream", "Hot Fudge", "Nuts", "Whipped Cream"].join(", "),
     img_url: "./assets/images/dessert-4.png",
     category: "desserts",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -244,6 +262,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/dessert-5.png",
     category: "desserts",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -252,18 +271,20 @@ export const menuItems = [
     description: "Refreshing iced coffee served with milk and sugar.",
     price: 3.99,
     ingredients: ["Coffee", "Ice", "Milk", "Sugar"].join(", "),
-    img_url: "./assets/images/drink-1.png",
+    img_url: "./assets/images/drinks-1.png",
     category: "drinks",
+    qty: 1,
   },
   {
     ...menuItem,
     id: 22,
     name: "Lemonade",
-    description: "Freshly squeezed lemonade served over ice.",
+    description: "Freshly squeezed lemonade with a touch of sweetness.",
     price: 2.99,
-    ingredients: ["Lemon", "Sugar", "Water"].join(", "),
-    img_url: "./assets/images/drink-2.png",
+    ingredients: ["Lemons", "Sugar", "Water"].join(", "),
+    img_url: "./assets/images/drinks-2.png",
     category: "drinks",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -274,6 +295,7 @@ export const menuItems = [
     ingredients: ["Carbonated Water", "Corn Syrup", "Caffeine"].join(", "),
     img_url: "./assets/images/drink-3.png",
     category: "drinks",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -284,6 +306,7 @@ export const menuItems = [
     ingredients: ["Ice Cream", "Milk", "Flavoring", "Whipped Cream"].join(", "),
     img_url: "./assets/images/drink-4.png",
     category: "drinks",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -294,6 +317,7 @@ export const menuItems = [
     ingredients: ["Tea Leaves", "Water", "Sugar"].join(", "),
     img_url: "./assets/images/drink-5.png",
     category: "drinks",
+    qty: 1,
   },
   {
     ...menuItem,
@@ -307,6 +331,7 @@ export const menuItems = [
     ),
     img_url: "./assets/images/food-16.png",
     category: "foods",
+    qty: 1,
   },
 
   {
@@ -325,6 +350,7 @@ export const menuItems = [
     ].join(", "),
     img_url: "./assets/images/food-17.png",
     category: "foods",
+    qty: 1,
   },
 
   {
@@ -339,5 +365,6 @@ export const menuItems = [
     ),
     img_url: "./assets/images/food-18.png",
     category: "foods",
+    qty: 1,
   },
 ];

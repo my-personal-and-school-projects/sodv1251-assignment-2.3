@@ -13,7 +13,6 @@ const foodCategories = {
 
 export let orderItem = "";
 
-let foodCategory = "";
 //track if the menu has been loaded
 let isMenuLoaded = false;
 const taxRate = 0.05;
@@ -62,14 +61,16 @@ function getRandomFoodItems(data, mealCount) {
   const randomizedData = shuffleArray([...data]);
   return randomizedData.slice(0, mealCount);
 }
-//TODO: fix function, foods logging null
+
+/**
+ * render a set of random food items from the List
+ */
 function generateRandomFoodItems() {
   if (foodSuggestionsRow) {
     foodSuggestionsRow.innerHTML = "";
     const foodSuggestions = [];
 
     const randomFoodCategories = getRandomFoodItems(menuItems, 12);
-    console.log("Foods: ", randomFoodCategories.foods);
 
     randomFoodCategories.forEach((item) => {
       foodSuggestions.push(item);
@@ -85,6 +86,10 @@ function generateRandomFoodItems() {
   }
 }
 
+/**
+ * Handle the logic of the order now button from the hero
+ * to get to the main food menu
+ */
 function handleBtnOrder() {
   if (btnOrder) {
     btnOrder.addEventListener("click", () => {
@@ -144,15 +149,15 @@ document.querySelectorAll(`.dropdown-item`).forEach((link) => {
   } */
 
 function updateShoppingCartItemsCounter() {
-  let parsedQuantities = [];
-  let qty = JSON.parse(localStorage.getItem("quantities")) || [];
+  let totalQty = 0;
+  let qtys = JSON.parse(localStorage.getItem("quantities")) || [];
   const cartItemsCounterLabel = document.querySelector(".cart-items");
 
-  console.log("label", cartItemsCounterLabel);
-  qty.forEach((quantity) => {
-    parsedQuantities.push(quantity);
-    console.log(quantity);
-    cartItemsCounterLabel.textContent = "";
-    cartItemsCounterLabel.textContent += parseInt(quantity);
+  qtys.forEach((item) => {
+    console.log("qty: ", item);
+
+    totalQty += parseInt(item);
+    console.log("total: ", totalQty);
   });
+  cartItemsCounterLabel.textContent = totalQty;
 }

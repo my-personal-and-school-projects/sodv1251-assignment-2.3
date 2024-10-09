@@ -7,6 +7,7 @@ const cartSubtotal = document.querySelector(".cart-subtotal");
 let itemsInCart = [];
 
 let subtotal = 0;
+let itemQuantity = 0;
 
 function onInit() {
   //getOrderFromLocalStorage();

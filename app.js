@@ -25,10 +25,10 @@ const server = http.createServer((req, res) => {
   if (req.url === "/") {
     // Serve the index page
     serveFiles(res, "./public/index.html", "text/html");
-  } else if (req.url.startsWith("/menu")) {
+  } else if (req.url === "/menu") {
     // Serve the menu page
     serveFiles(res, "./public/pages/menu.html", "text/html");
-  } else if (req.url === "/menu-food") {
+  } else if (req.url.startsWith("/menu-food")) {
     //Serve food menu page
     serveFiles(res, "./public/pages/menu-food.html", "text/html");
   } else if (req.url.startsWith("/order")) {

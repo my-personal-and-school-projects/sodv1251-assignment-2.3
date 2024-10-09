@@ -74,7 +74,7 @@ function handleQuantityInput(price) {
 }
 
 function getItemsQuantity(qty) {
-  const quantities = [];
-  quantities.push(qty);
+  const quantities = JSON.parse(localStorage.getItem("quantities")) || [];
+  quantities.push(String(qty));
   localStorage.setItem("quantities", JSON.stringify(quantities));
 }

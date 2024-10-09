@@ -6,6 +6,8 @@ export const menuItem = {
   ingredients: ["Beef Patty", "Lettuce", "Tomato", "Cheese", "Bun"],
   img_url: "./images/img",
   category: "foods",
+  qty: 1,
+
   calculate_totalcost: function (taxRate, discount) {
     const taxAmount = this.price * taxRate;
     const discountAmount = this.price * discount;

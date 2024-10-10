@@ -53,7 +53,7 @@ export const shoppingCartCard = (menuItem) => `
     </div>
     </div>
     <div class="col-6 d-flex flex-column align-items-end">
-    <p class="py-3">$<span>${menuItem.price}</span></p>
+    <p class="py-3">$<span>${menuItem.price * menuItem.qty}</span></p>
     <input
         class="input-qty form-control w-50"
         type="number"

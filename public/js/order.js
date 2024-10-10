@@ -51,14 +51,23 @@ addToCartButton.addEventListener("click", (event) => {
 
   const urlParams = new URLSearchParams(window.location.search);
   const itemId = urlParams.get("item");
-  shoppingCartItems.push(itemId);
 
+  //get and pass the whole food object
+  let orderedItems = menuItems.filter((item) => item.id === Number(itemId));
+
+  orderedItems.forEach((item) => {
+    //set the item qty based on the input value
+    item.qty = itemQuantity;
+  });
+
+  shoppingCartItems.push(orderedItems);
+  getItemsQuantity(itemQuantity);
   localStorage.setItem("shoppingCartItems", JSON.stringify(shoppingCartItems));
 
-  console.log(shoppingCartItems);
-  getItemsQuantity(itemQuantity);
   window.location.href = "/menu";
+
   console.log(itemQuantity);
+  console.log("Stored food item", shoppingCartItems);
 });
 
 /**

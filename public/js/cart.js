@@ -24,8 +24,12 @@ function getOrderFromLocalStorage() {
   let shoppingCartItems =
     JSON.parse(localStorage.getItem("shoppingCartItems")) || [];
 
-  shoppingCartItems.forEach((item) => {
-    parsedItems.push(item);
+  console.log("Shopping cart", shoppingCartItems);
+
+  shoppingCartItems.forEach((cartItemArray) => {
+    cartItemArray.forEach((cartItem) => {
+      parsedItems.push(cartItem);
+    });
   });
 
   return parsedItems;
@@ -43,20 +47,13 @@ function renderCartItems() {
   if (itemsInCart.length > 0) {
     cartItemsContainer.innerHTML = "";
 
-    console.log(itemsInCart);
-
     itemsInCart.forEach((cartItem) => {
-      let orderedItem = menuItems.filter(
-        (item) => item.id === Number(cartItem)
-      );
-      console.log(orderedItem);
-      parsedItems.push(orderedItem[0]);
+      parsedItems.push(cartItem);
     });
-    console.log(parsedItems);
 
     parsedItems.forEach((parsedItem) => {
       cartItemsContainer.innerHTML += shoppingCartCard(parsedItem);
-      subtotal += parseFloat(parsedItem.price);
+      subtotal += parseFloat(parsedItem.price * parsedItem.qty);
     });
 
     cartSubtotal.textContent = subtotal.toFixed(2);

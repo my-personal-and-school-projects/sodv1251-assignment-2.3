@@ -4,8 +4,9 @@ import { shoppingCartCard } from "./templates.js";
 /* Get necessary components from the DOM */
 const cartItemsContainer = document.querySelector(".cart-item-card-container");
 const cartSubtotal = document.querySelector(".cart-subtotal");
-let itemsInCart = [];
+const itemQty = document.querySelector(".input-qty ");
 
+let itemsInCart = [];
 let subtotal = 0;
 let itemQuantity = 0;
 
@@ -64,4 +65,16 @@ function renderCartItems() {
     <h3 class="w-50 m-auto text-center text-danger py-5">Cart Empty</h3>
     `;
   }
+}
+
+/**
+ * Update the price tag based on the quantity input
+ * @param {*} price
+ */
+function handleQuantityInput(price) {
+  itemQty.addEventListener("input", (event) => {
+    //TODO: update the price and subtotal based on qty changes
+
+    priceTag.textContent = price * itemQuantity;
+  });
 }

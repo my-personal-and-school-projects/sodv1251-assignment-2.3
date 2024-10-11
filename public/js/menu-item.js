@@ -9,10 +9,11 @@ export const menuItem = {
   qty: 1,
 
   calculate_totalcost: function (qty, taxRate, discount) {
-    const taxAmount = this.price * qty * taxRate;
-    const discountAmount = this.price * qty * discount;
+    const subtotal = this.price * qty;
+    const taxAmount = parseFloat((subtotal * taxRate).toFixed(3));
+    const discountAmount = subtotal * discount;
 
-    const totalCost = this.price * qty + taxAmount - discountAmount;
+    const totalCost = subtotal + taxAmount - discountAmount;
 
     return totalCost;
   },

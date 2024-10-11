@@ -5,7 +5,7 @@ import { shoppingCartCard } from "./templates.js";
 const cartItemsContainer = document.querySelector(".cart-item-card-container");
 const cartSubtotal = document.querySelector(".cart-subtotal");
 const cartGST = document.querySelector(".cart-gst");
-const carttotal = document.querySelector(".cart-total");
+const cartTotal = document.querySelector(".cart-total");
 
 let itemsInCart = [];
 let subtotal = 0;
@@ -38,6 +38,7 @@ function getOrderFromLocalStorage() {
 function renderCartItems() {
   let parsedItems = [];
   let price = 0;
+  let grandTotal = 0;
   itemsInCart = getOrderFromLocalStorage();
 
   if (itemsInCart.length > 0) {
@@ -51,8 +52,17 @@ function renderCartItems() {
       cartItemsContainer.innerHTML += shoppingCartCard(parsedItem);
       subtotal += parseFloat(parsedItem.price * parsedItem.qty);
       price = parsedItem.price;
-      handleQuantityInput(parsedItem.id);
+      handleQuantityInput(parsedItem);
+
+      let orderedItem = menuItems.find(
+        (item) => item.id === Number(parsedItem.id)
+      );
+
+      grandTotal += orderedItem.calculate_totalcost(parsedItem.qty, 0.05, 0);
+      console.log("gran total:", grandTotal);
     });
+
+    cartTotal.innerHTML = grandTotal;
 
     cartSubtotal.textContent = subtotal.toFixed(2);
   } else {
@@ -68,7 +78,7 @@ function renderCartItems() {
  * Update the price tag based on the quantity input
  * @param {*} cartItem
  */
-function handleQuantityInput(itemId) {
+function handleQuantityInput(item) {
   let itemqty = 0;
   const inputQtyGroup = document.querySelectorAll(".input-qty");
 
@@ -90,34 +100,24 @@ function handleQuantityInput(itemId) {
         priceTag.textContent = "0.00";
       }
     });
-    updateSubtotal(itemId, itemqty);
+    updateSubtotal(item);
   });
 }
 
 /**
  * Update cart subtotal
  */
-function updateSubtotal(itemId, itemqty) {
+function updateSubtotal() {
   const priceTags = document.querySelectorAll(".price-tag");
   let subtotal = 0;
   let gst = 0;
-  let grandTotal = 0;
-
-  let itemInCart = menuItems.find((item) => item.id === Number(itemId));
 
   priceTags.forEach((priceTag) => {
     const priceValue = parseFloat(priceTag.textContent) || 0;
     subtotal += priceValue;
-    console.log("price: ", priceValue);
 
-    if (itemInCart) {
-      const itemTotalCost = itemInCart.calculate_totalcost(itemqty, 0.05, 0);
-
-      let itemGST = priceValue * 0.05;
-      gst += parseFloat(itemGST);
-      console.log("GST: ", gst.toFixed(2));
-      console.log("cost: ", itemTotalCost);
-    }
+    let itemGST = priceValue * 0.05;
+    gst += parseFloat(itemGST);
   });
 
   cartSubtotal.innerHTML = subtotal.toFixed(2);

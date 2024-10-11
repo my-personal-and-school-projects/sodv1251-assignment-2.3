@@ -37,6 +37,9 @@ const server = http.createServer((req, res) => {
   } else if (req.url === "/cart") {
     //serve the cart page
     serveFiles(res, "./public/pages/cart.html", "text/html");
+  } else if (req.url === "/confirmation-order") {
+    //serve the order confirmation page
+    serveFiles(res, "./public/pages/order-confirmation.html", "text/html");
   } else {
     // Serve static files (CSS, JS, images)
     const filePath = path.join(__dirname, "public", req.url);

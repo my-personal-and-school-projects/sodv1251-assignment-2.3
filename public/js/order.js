@@ -62,7 +62,7 @@ addToCartButton.addEventListener("click", (event) => {
     item.qty = itemQuantity;
   });
 
-  shoppingCartItems.push(orderedItems);
+  shoppingCartItems.push(...orderedItems);
   getItemsQuantity(itemQuantity);
   localStorage.setItem("shoppingCartItems", JSON.stringify(shoppingCartItems));
 

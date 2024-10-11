@@ -52,6 +52,8 @@ addToCartButton.addEventListener("click", (event) => {
   const urlParams = new URLSearchParams(window.location.search);
   const itemId = urlParams.get("item");
 
+  itemQuantity = parseInt(itemQty.value) || 1;
+
   //get and pass the whole food object
   let orderedItems = menuItems.filter((item) => item.id === Number(itemId));
 

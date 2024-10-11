@@ -25,15 +25,15 @@ export const foodOrderCard = (menuItem) => `
     <img src="${menuItem.img_url}" alt="food image" />
     </div>
     <div class="order-card-description p-4">
-    <div>
-        <ul class="p-0">
-        <li class="list-group-item">
-            <a href="/" class="">Home</a>
-            /
-            <a href="/menu" class="">Menu</a>
-        </li>
-        </ul>
-    </div>
+        <div>
+            <ul class="p-0">
+            <li class="list-group-item">
+                <a href="/" class="">Home</a>
+                /
+                <a href="/menu" class="">Menu</a>
+            </li>
+            </ul>
+        </div>
     <h2>${menuItem.name}</h2>
     <p><span>$${menuItem.price}</span></p>
     <p>${menuItem.description}</p>
@@ -53,7 +53,9 @@ export const shoppingCartCard = (menuItem) => `
     </div>
     </div>
     <div class="col-6 d-flex flex-column align-items-end">
-    <p class="py-3">$<span>${menuItem.price * menuItem.qty}</span></p>
+    <p class="py-3">$<span class="price-tag" data-price="${menuItem.price}">${
+  menuItem.price * menuItem.qty
+}</span></p>
     <input
         class="input-qty form-control w-50"
         type="number"

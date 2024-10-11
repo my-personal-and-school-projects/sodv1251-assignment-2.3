@@ -8,12 +8,12 @@ export const menuItem = {
   category: "foods",
   qty: 1,
 
-  calculate_totalcost: function (taxRate, discount) {
-    const taxAmount = this.price * taxRate;
-    const discountAmount = this.price * discount;
+  calculate_totalcost: function (qty, taxRate, discount) {
+    const taxAmount = this.price * qty * taxRate;
+    const discountAmount = this.price * qty * discount;
 
-    const totalCost = this.price + taxAmount - discountAmount;
+    const totalCost = this.price * qty + taxAmount - discountAmount;
 
-    return totalCost.toFixed(2);
+    return totalCost;
   },
 };

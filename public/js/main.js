@@ -149,15 +149,7 @@ document.querySelectorAll(`.dropdown-item`).forEach((link) => {
   } */
 
 function updateShoppingCartItemsCounter() {
-  let totalQty = 0;
-  let qtys = JSON.parse(localStorage.getItem("quantities")) || [];
+  const totalQty = parseInt(localStorage.getItem("quantities")) || 0;
   const cartItemsCounterLabel = document.querySelector(".cart-items");
-
-  qtys.forEach((item) => {
-    console.log("qty: ", item);
-
-    totalQty += parseInt(item);
-    console.log("total: ", totalQty);
-  });
   cartItemsCounterLabel.textContent = totalQty;
 }

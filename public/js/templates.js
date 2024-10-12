@@ -49,7 +49,9 @@ export const shoppingCartCard = (menuItem) => `
     <p><strong>${menuItem.name}</strong></p>
     <p class="py-3">${menuItem.description}</p>
     <div>
-        <button class="btn-remove-item">Remove</button>
+        <button data-item="${
+          menuItem.id
+        }" class="btn-remove-item">Remove</button>
     </div>
     </div>
     <div class="col-6 d-flex flex-column align-items-end">

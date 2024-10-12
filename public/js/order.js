@@ -59,7 +59,7 @@ addToCartButton.addEventListener("click", (event) => {
 
   orderedItems.forEach((item) => {
     //set the item qty based on the input value
-    item.qty = itemQuantity;
+    item.qty = parseFloat(itemQuantity);
   });
 
   shoppingCartItems.push(...orderedItems);
@@ -85,7 +85,7 @@ function handleQuantityInput(price) {
 }
 
 function getItemsQuantity(qty) {
-  const quantities = JSON.parse(localStorage.getItem("quantities")) || [];
-  quantities.push(String(qty));
-  localStorage.setItem("quantities", JSON.stringify(quantities));
+  let totalQty = parseInt(localStorage.getItem("quantities")) || 0;
+  totalQty += qty;
+  localStorage.setItem("quantities", totalQty);
 }

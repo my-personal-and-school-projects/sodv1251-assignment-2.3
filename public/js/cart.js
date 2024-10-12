@@ -8,7 +8,9 @@ const cartGST = document.querySelector(".cart-gst");
 const cartTotal = document.querySelector(".cart-total");
 
 let itemsInCart = [];
+let parsedItems = [];
 let subtotal = 0;
+let itemQty = 0;
 
 function onInit() {
   //getOrderFromLocalStorage();
@@ -36,10 +38,11 @@ function getOrderFromLocalStorage() {
  * update totals
  */
 function renderCartItems() {
-  let parsedItems = [];
   let price = 0;
   let grandTotal = 0;
   itemsInCart = getOrderFromLocalStorage();
+
+  gotoConfirmation(parsedItems);
 
   if (itemsInCart.length > 0) {
     cartItemsContainer.innerHTML = "";
@@ -52,7 +55,13 @@ function renderCartItems() {
       cartItemsContainer.innerHTML += shoppingCartCard(parsedItem);
       subtotal += parseFloat(parsedItem.price * parsedItem.qty);
       price = parsedItem.price;
-      handleQuantityInput(parsedItem);
+      handleQuantityInput();
+      handleRemoveItemButtons();
+
+      /* TODO: Implement Logic to remove items from the cart */
+
+      /* TODO: If possible implement logic to do not allow duplicated cards
+      in the shopping cart and increase the qty on instead */
 
       let orderedItem = menuItems.find(
         (item) => item.id === Number(parsedItem.id)
@@ -62,7 +71,7 @@ function renderCartItems() {
       console.log("gran total:", grandTotal);
     });
 
-    cartTotal.innerHTML = grandTotal;
+    cartTotal.innerHTML = grandTotal.toFixed(3);
 
     cartSubtotal.textContent = subtotal.toFixed(2);
   } else {
@@ -78,29 +87,29 @@ function renderCartItems() {
  * Update the price tag based on the quantity input
  * @param {*} cartItem
  */
-function handleQuantityInput(item) {
-  let itemqty = 0;
+function handleQuantityInput() {
   const inputQtyGroup = document.querySelectorAll(".input-qty");
 
-  let totalPrice = 0;
   inputQtyGroup.forEach((input) => {
     const cardWrapper = input.closest(".cart-card-wrapper");
     const priceTag = cardWrapper.querySelector(".price-tag");
     const pricePerItem = parseFloat(priceTag.dataset.price);
 
     input.addEventListener("input", (event) => {
-      event.preventDefault;
+      event.preventDefault();
 
-      itemqty = parseFloat(event.target.value);
+      itemQty = parseFloat(event.target.value);
 
-      if (!isNaN(itemqty) & (itemqty >= 0)) {
-        totalPrice = pricePerItem * itemqty;
+      if (!isNaN(itemQty) && itemQty >= 0) {
+        const totalPrice = pricePerItem * itemQty;
         priceTag.textContent = totalPrice.toFixed(2);
       } else {
         priceTag.textContent = "0.00";
       }
+
+      updateSubtotal();
     });
-    updateSubtotal(item);
+    updateSubtotal();
   });
 }
 
@@ -111,15 +120,87 @@ function updateSubtotal() {
   const priceTags = document.querySelectorAll(".price-tag");
   let subtotal = 0;
   let gst = 0;
+  let grandTotal = 0;
 
   priceTags.forEach((priceTag) => {
     const priceValue = parseFloat(priceTag.textContent) || 0;
     subtotal += priceValue;
 
+    // Calculate GST
     let itemGST = priceValue * 0.05;
     gst += parseFloat(itemGST);
   });
 
+  // Update the subtotal and GST values
   cartSubtotal.innerHTML = subtotal.toFixed(2);
   cartGST.innerHTML = gst.toFixed(3);
+
+  // Calculate and update the grand total
+  grandTotal = subtotal + gst;
+  cartTotal.innerHTML = grandTotal.toFixed(2);
+}
+
+/**
+ * Go to otrder confirmation and reset the cart
+ * @param {*} parsedItems
+ */
+function gotoConfirmation() {
+  const btnPlaceOrder = document.querySelector(".btn-place-order");
+
+  if (itemsInCart.length === 0) {
+    btnPlaceOrder.classList.add("disabled");
+  } else {
+    btnPlaceOrder.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      //Reset the cart
+      parsedItems = [];
+      localStorage.removeItem("shoppingCartItems");
+      localStorage.removeItem("quantities");
+
+      window.location.href = "confirmation-order";
+    });
+  }
+}
+
+function handleRemoveItemButtons() {
+  const resetButtons = document.querySelectorAll(".btn-remove-item");
+
+  if (resetButtons) {
+    resetButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const itemId = JSON.parse(event.target.dataset.item);
+        removeItems(itemId);
+      });
+    });
+  }
+}
+
+function removeItems(itemId) {
+  let qtyToRemove = 0;
+  if (itemId != null) {
+    const shoppingCartItems = getOrderFromLocalStorage();
+
+    let itemToRemove = shoppingCartItems.find((item) => item.id === itemId);
+
+    if (itemToRemove) {
+      qtyToRemove = parseFloat(itemToRemove.qty);
+    }
+
+    let updatedShoppingCartItems = shoppingCartItems.filter(
+      (item) => item.id !== itemId
+    );
+
+    localStorage.setItem(
+      "shoppingCartItems",
+      JSON.stringify(updatedShoppingCartItems)
+    );
+
+    let totalQty = parseInt(localStorage.getItem("quantities")) || 0;
+    let updatedQty = totalQty - qtyToRemove;
+    localStorage.setItem("quantities", JSON.stringify(updatedQty));
+
+    window.location.href = "cart";
+  }
 }
